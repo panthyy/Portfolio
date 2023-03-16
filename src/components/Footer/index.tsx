@@ -1,5 +1,5 @@
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { GrMail } from "react-icons/gr";
+import { BsGithub, BsLinkedin } from "react-icons/bs/index.js";
+import { GrMail } from "react-icons/gr/index.js";
 
 type SocialLinkProps = {
   icon: React.ReactNode;

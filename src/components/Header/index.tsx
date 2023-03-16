@@ -1,4 +1,4 @@
-function Header() {
+export const Header = () => {
   const menuItems = [
     {
       href: "#Projects",
@@ -61,5 +61,4 @@ function Header() {
       </div>
     </header>
   );
-}
-export { Header };
+};

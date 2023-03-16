@@ -1,7 +1,7 @@
 import "../../styles/global.css";
 import anime from "animejs";
 import { useRef, useState, useEffect } from "react";
-const Base = ({ children }) => {
+export const Base = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       id="Base"
@@ -13,4 +13,3 @@ const Base = ({ children }) => {
     </div>
   );
 };
-export { Base };

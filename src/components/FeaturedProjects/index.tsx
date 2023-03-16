@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
 import anime from "animejs";
 import { Waypoint } from "react-waypoint";
+
+type Project = {
+  id: number;
+  title: string;
+
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  link: string;
+  github: string;
+  topics: string[];
+};
 export const FeaturedProjects = () => {
-  const [Projects, setProjects] = useState([
+  const [Projects, setProjects] = useState<Project[]>([
     {
       id: 1,
       title: "Tailspiral",
@@ -36,7 +50,7 @@ export const FeaturedProjects = () => {
       topics: ["React", "Node", "Express", "MongoDB"],
     },
   ]);
-  let playAnim;
+  let playAnim: () => void;
 
   useEffect(() => {
     playAnim = anime({
@@ -55,7 +69,7 @@ export const FeaturedProjects = () => {
     }).play;
   }, []);
 
-  const Project = ({ project }) => {
+  const Project = ({ project }: { project: Project }) => {
     return (
       <div className=" mb-[57px] flex-col lg:flex-row  gap-10 w-full pt-full relative flex">
         <div className="flex items-center justify-center w-full overflow-hidden rounded-md lg:w-[40%]">

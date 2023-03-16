@@ -27,7 +27,9 @@ function Experience() {
   // TODO: REFACTOR THIS LATER
   useEffect(() => {
     window.addEventListener("resize", () => {
-      const x = document.getElementById("Experience" + ExperienceTabSelected);
+      const x = document.getElementById(
+        "Experience" + ExperienceTabSelected
+      ) as HTMLElement;
       anime({
         targets: selectedRev.current,
         translateX: x.offsetLeft,
@@ -37,7 +39,9 @@ function Experience() {
     });
   }, [ExperienceTabSelected]);
   useEffect(() => {
-    const x = document.getElementById("Experience" + ExperienceTabSelected);
+    const x = document.getElementById(
+      "Experience" + ExperienceTabSelected
+    ) as HTMLElement;
     anime({
       targets: selectedRev.current,
       translateX: x.offsetLeft,
