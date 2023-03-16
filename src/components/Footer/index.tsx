@@ -28,7 +28,7 @@ export const Footer = () => {
 
   const SocialLink = (props: SocialLinkProps) => {
     return (
-      <a href={"mailto:fahad.alhatshami@hotmail.com"}>
+      <a href={props.link} target="_blank" rel="noreferrer">
         <div className="flex items-center justify-center h-10 gap-2 transition-all duration-300 ease-in-out border-2 border-gray-400 rounded-sm cursor-pointer active:bg-gray-800 active:text-white active:scale-95 hover:bg-gray-800 hover:text-white w-52">
           {props.icon}
           <p className="text-[18px]"> {props.text}</p>
