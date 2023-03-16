@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: local("GT Walsheim Pro Regular"),local("/fonts/GTWalsheimPro/GTWalsheimProRegular"),url(/fonts/GTWalsheimPro/GTWalsheimProRegular.woff2) format("woff2"),url(/fonts/GTWalsheimPro/GTWalsheimProRegular.woff) format("woff"),url(/fonts/GTWalsheimPro/GTWalsheimProRegular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+.SocialBtn{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid gray;
+  border-radius:4px ;
+  width: 210px;
+  height: 50px;
+
+}
+li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+h1{
+  font-size: 10vw;
+  font-weight: 800;
+  font-family: GT Walsheim Pro;
+}
+p{
+  font-family: 'Inter', sans-serif;
+}
+
+#__next{
+  height: 100%;
+  width: 100%;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+#Children {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier();
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
