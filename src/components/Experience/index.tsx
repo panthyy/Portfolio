@@ -1,26 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import anime from "animejs";
-function Experience() {
+
+export type Experience = {
+  id: number;
+  company: string;
+  position: string;
+  points: {
+    point: string;
+  }[];
+};
+
+function Experience({ Experiences }: { Experiences: Experience[] }) {
   const [ExperienceTabSelected, setExperienceTabSelected] = useState(0);
-  const Experiences = [
-    {
-      Company: "Compileit",
-      Position: "Full Stack Developer",
-      Points: [
-        "Automated the inventory forecasting process, streamlining operations and increasing efficiency.",
-        "Improved website loading times by 30% through the implementation of caching and optimization techniques.",
-        "Improved the mobile user experience and extended an existing Django Web Application.",
-      ],
-    },
-    {
-      Company: "Lunds University",
-      Position: "Teaching Assistant (Part time)",
-      Points: [
-        "Teaching assistant for introduction to programming course at LTH (EDAA10)",
-        "Grading/helping 200+ students with varying levels of experience to grasp fundamental programming concepts.",
-      ],
-    },
-  ];
 
   const selectedRev = useRef(null);
 
@@ -77,22 +68,22 @@ function Experience() {
                 y
               }
             >
-              {experience.Company}
+              {experience.company}
             </div>
           );
         })}
       </div>
       <div className=" mt-16 flex h-48 flex-col gap-[12px]">
         <h3 className=" text-[24px]  font-[Inter] ">
-          {Experiences[ExperienceTabSelected].Position}
+          {Experiences[ExperienceTabSelected].position}
         </h3>
         <span className="text-[#004E93] leading-6 font-[Inter] text-[16px]">
-          {Experiences[ExperienceTabSelected].Company}
+          {Experiences[ExperienceTabSelected].company}
         </span>
         <ul className=" flex flex-col dark:text-[#C4C4C4]  gap-[12px] font-[Inter] mt-2">
-          {Experiences[ExperienceTabSelected].Points.map((point, index) => (
+          {Experiences[ExperienceTabSelected].points.map((point, index) => (
             <li key={index} className="flex items-center gap-3">
-              - {point}
+              - {point.point}
             </li>
           ))}
         </ul>

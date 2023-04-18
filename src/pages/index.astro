@@ -9,15 +9,21 @@ import {
   FeaturedProjects,
   Divider,
 } from "../components";
+import directus from "../directus";
+
+
+const Experiences = (await directus.items("Work_Experience").readByQuery())
+  .data as Experience[];
+
 ---
 
 <Layout title="Welcome">
   <Base>
     <Header />
-    <Hero client:load />
-    <Experience client:load />
+    <Hero  />
+    <Experience client:load  Experiences={Experiences} />
     <Divider />
-    <FeaturedProjects client:load />
+    <FeaturedProjects  />
     <Divider />
     <Footer />
   </Base>
