@@ -3,10 +3,7 @@ import anime from "animejs";
 import { Waypoint } from "react-waypoint";
 import directus from "../../directus";
 
-const data = await directus.items("Projects").readByQuery();
-
-const Projects = data.data as Project[];
-type Project = {
+export type Project = {
   id: number;
   title: string;
 
@@ -16,7 +13,7 @@ type Project = {
   github: string;
   topics: string[];
 };
-export const FeaturedProjects = () => {
+export const FeaturedProjects = ({ Projects }: { Projects: Project[] }) => {
   let playAnim: () => void;
 
   useEffect(() => {
