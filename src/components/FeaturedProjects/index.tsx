@@ -42,7 +42,7 @@ export const FeaturedProjects = ({ Projects }: { Projects: Project[] }) => {
             src={"https://cms.codebykai.com/assets/" + project.image}
           />
         </div>
-        <div className="flex  w-[60%] flex-col  gap-4 lg:mt-[20px] ">
+        <div className="flex w-full  xl:w-[60%] flex-col  gap-4 lg:mt-[20px] ">
           <div className="flex items-center justify-between  flex-wrap mb-[12px]">
             <h3 className=" text-[24px]">{project.title}</h3>
             <div className="Projectas h-full  my-4 mt-2 text-[24px] flex ml-2 ">

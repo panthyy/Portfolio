@@ -73,7 +73,7 @@ function Experience({ Experiences }: { Experiences: Experience[] }) {
           );
         })}
       </div>
-      <div className=" mt-16 flex h-48 flex-col gap-[12px]">
+      <div className=" mt-8 flex h-48 flex-col gap-[12px]">
         <h3 className=" text-[24px]  font-[Inter] ">
           {Experiences[ExperienceTabSelected].position}
         </h3>
