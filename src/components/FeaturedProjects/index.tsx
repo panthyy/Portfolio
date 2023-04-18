@@ -1,55 +1,22 @@
 import { useEffect, useState } from "react";
 import anime from "animejs";
 import { Waypoint } from "react-waypoint";
+import directus from "../../directus";
 
+const data = await directus.items("Projects").readByQuery();
+
+const Projects = data.data as Project[];
 type Project = {
   id: number;
   title: string;
 
   description: string;
-  image: {
-    src: string;
-    alt: string;
-  };
+  image: string;
   link: string;
   github: string;
   topics: string[];
 };
 export const FeaturedProjects = () => {
-  const [Projects, setProjects] = useState<Project[]>([
-    {
-      id: 1,
-      title: "Tailspiral",
-      description:
-        "Tailspiral is a platform that enables seamless collaboration among distributed cross-functional teams using cutting-edge MFE technology. It streamlines the handling of complex dependencies and compositions. At its core, Tailspiral is a website builder that enables the creation of reusable and federated React components, giving users full control over how they are utilized in the website building process.",
-      image: {
-        src: "https://via.placeholder.com/800x600?text=Image+Placeholder",
-        alt: "Tailspiral",
-      },
-      link: "https://tailspiral.com",
-      github: "https://github.com/Tailspiral",
-      topics: [
-        "React",
-        "Typescript",
-        "Docker",
-        "Webpack",
-        "Micro Frontends",
-        "SQL",
-      ],
-    },
-    {
-      id: 2,
-      title: "TimeEase",
-      description: `En funktionell prototyp till Kävlinge kommun för att utforska möjligheten att digitalisera närvarokontroll av personer som utför habiliteringsarbete på ett företag i kommunen. Den digitala lösningen hade även som mål att hjälpa till att motivera ökat deltagande samt ge bättre insyn på ersättningen som ges. I syfte med det har vi utvecklat en hemsida där personerna som ingår i programmet ska kunna logga in och bekräfta sin närvaro på arbetspasset de är schemalagda för. Det finns även information som ska tydliggöra hur mycket ersättning de har tjänat in samt ska det kännas motiverande.`,
-      image: {
-        src: "/images/timeease.png",
-        alt: "TimeEase",
-      },
-      link: "https://www.google.com",
-      github: "https://github.com",
-      topics: ["React", "Node", "Express", "MongoDB"],
-    },
-  ]);
   let playAnim: () => void;
 
   useEffect(() => {
@@ -75,8 +42,7 @@ export const FeaturedProjects = () => {
         <div className="flex items-center justify-center w-full overflow-hidden rounded-md lg:w-[40%]">
           <img
             className="object-contain w-full h-full"
-            src={project.image.src}
-            alt={project.image.alt}
+            src={"https://cms.codebykai.com/assets/" + project.image}
           />
         </div>
         <div className="flex  w-[60%] flex-col  gap-4 lg:mt-[20px] ">
@@ -121,14 +87,15 @@ export const FeaturedProjects = () => {
             FEATURED PROJECTS
           </header>
           <div className="mt-[52px] gap-10 font-[Inter] w-full flex flex-wrap ">
-            {Projects.map((project, index) => (
-              <>
-                <Project key={index} project={project} />
-                {index === 0 && (
-                  <div className="w-full h-[1px] bg-gray-400"></div>
-                )}
-              </>
-            ))}
+            {Projects &&
+              Projects.map((project, index) => (
+                <>
+                  <Project key={index} project={project} />
+                  {index === 0 && (
+                    <div className="w-full h-[1px] bg-gray-400"></div>
+                  )}
+                </>
+              ))}
           </div>
         </div>
       </section>

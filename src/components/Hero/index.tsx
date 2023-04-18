@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export const Hero = () => {
   return (
     <section className="flex flex-col ">
